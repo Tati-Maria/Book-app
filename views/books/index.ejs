@@ -1,0 +1,27 @@
+<h2>
+    Search for a Book
+</h2>
+<form action="/books" method="GET">
+
+    <div>
+        <label for="name">Title</label>
+        <input value="<%= searchOptions.title %>" type="search" name="title" placeholder="Search for a book">
+    </div>
+    <div>
+        <label>Published After</label>
+        <input value="<%= searchOptions.publishedAfter %>" type="date" name="publishedAfter">
+    </div>
+    <div>
+        <label>Published Before</label>
+        <input value="<%= searchOptions.publishedBefore %>" type="date" name="publishedBefore">
+    </div>
+    <button type="submit">Search</button>
+</form>
+<br>
+<div>
+    <% books.map(book => { %>
+        <div>
+            <img height="150" width="100" src="<%= book.coverImagePath %>" alt="book cover">
+        </div>
+    <%}) %>
+</div>

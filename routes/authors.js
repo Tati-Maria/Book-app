@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         searchOptions.name = new RegExp(req.query.name, 'i'); //case insensitive
     }
     try {
-        const authors = await Author.find(searchOptions).sort({name: 'asc'}).limit(20);
+        const authors = await Author.find(searchOptions).sort({name: 'asc'}).limit(20).exec();
         const formattedAuthors = authors.map(author => {
             const formattedDob = new Date(author.dob).toLocaleDateString();
             return {...author.toObject(), dob: formattedDob}

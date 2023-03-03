@@ -1,1 +1,10 @@
-Middle
+<h2>
+    Recently Added Books
+</h2>
+<div>
+    <% books.map(book => { %>
+        <div>
+            <img height="150" width="100" src="<%= book.coverImagePath %>" alt="book cover">
+        </div>
+    <%}) %>
+</div>
