@@ -1,0 +1,16 @@
+<h2>
+    Search for an Author
+</h2>
+<form action="/authors" method="GET">
+    <label for="name">Search</label>
+    <input value="<%= searchOptions.name %>" type="search" name="name" placeholder="Search for an author">
+    <button type="submit">Search</button>
+</form>
+<br>
+<% authors.map(author => {%>
+    <div>
+        <div><%= author.name %></div>
+        <div><%= author.dob %></div>
+        <div><%= author.nationality %></div>
+    </div>
+<% })%>
