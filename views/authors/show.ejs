@@ -11,7 +11,10 @@
     <ul>
         <% booksByAuthor.map(book => {%>
             <li>
-                <img src="<%= book.coverImagePath %>" alt="<%= book.title %>">
+                <a href="/books/<%= book._id %>">
+                    <img src="<%= book.coverImagePath %>" alt="<%= book.title %>">
+                </a>
+                <h2><%= book.title %></h2>
             </li>
         <% })%>
     </ul>

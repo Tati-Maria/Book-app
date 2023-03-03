@@ -21,7 +21,9 @@
 <div>
     <% books.map(book => { %>
         <div>
-            <img height="150" width="100" src="<%= book.coverImagePath %>" alt="book cover">
+            <a href="/books/<%= book._id %>">
+                <img height="150" width="100" src="<%= book.coverImagePath %>" alt="book cover">
+            </a>
         </div>
     <%}) %>
 </div>

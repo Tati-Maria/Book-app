@@ -1,0 +1,28 @@
+<h2>
+    <%= book.title %>
+</h2>
+<small><%= book.genre %></small>
+<img src="<%= book.coverImagePath %>" alt="<%= book.title %>">
+<div>
+    <div>
+        <h3>Author</h3>
+        <p><%= book.author.name %></p>
+    </div>
+    <div>
+        <h3>Published</h3>
+        <p><%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %></p>
+    </div>
+    <div>
+        <h3>Pages</h3>
+        <p><%= book.pageCount %></p>
+    </div>
+    <div>
+        <h3>Description</h3>
+        <p><%= book.description %></p>
+    </div>
+</div>
+
+<a href="/books/<%= book._id %>/edit">Edit</a>
+<!--Delete form-->
+<%- include('../partials/deleteForm', {url: '/books/' + book._id}) %>
+<a href="/authors/<%= book.author._id %>">View Author</a>
