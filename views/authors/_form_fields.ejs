@@ -1,8 +1,8 @@
 <label for="name">Name</label>
-<input type="text" name="name" id="name"><%= author.name%>
+<input type="text" name="name" id="name" value="<%= author.name %>">
 
 <label for="dob">Date of Birth</label>
-<input type="date" name="dob" id="dob"><%= author.dob%>
+<input type="date" name="dob" id="dob" value="<%= author.dob == null ? '' : author.dob.toISOString().split('T')[0]%>">
 
 <label for="nationality">Nationality</label>
-<input type="text" name="nationality" id="nationality"><%= author.nationality%>
+<input type="text" name="nationality" id="nationality" value="<%= author.nationality %>">

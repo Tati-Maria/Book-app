@@ -12,5 +12,9 @@
         <div><%= author.name %></div>
         <div><%= author.dob %></div>
         <div><%= author.nationality %></div>
+        <a href="/authors/<%= author._id%>">View</a>
+        <a href="/authors/<%= author._id %>/edit">Edit</a>
+        <!--include form btn-->
+        <%- include('../partials/deleteForm', {url: '/authors/' + author._id}) %>
     </div>
 <% })%>

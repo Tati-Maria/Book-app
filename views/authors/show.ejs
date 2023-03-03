@@ -1,0 +1,18 @@
+<h2><%= author.name %></h2>
+<div>
+    <small>Born in <%= author.dob %></small>
+    <small>Nationality <%= author.nationality %></small>
+</div>
+<a href="/authors/<%= author._id %>/edit">Edit</a>
+<!--include form btn-->
+<%- include('../partials/deleteForm', {url: '/authors/' + author._id}) %>
+<% if(booksByAuthor.length > 0) {%>
+    <h3>Books by Author</h3>
+    <ul>
+        <% booksByAuthor.map(book => {%>
+            <li>
+                <img src="<%= book.coverImagePath %>" alt="<%= book.title %>">
+            </li>
+        <% })%>
+    </ul>
+<% } %>
