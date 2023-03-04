@@ -1,20 +1,19 @@
-<h2>
+<h2 class="page-header">
     Search for an Author
 </h2>
-<form action="/authors" method="GET">
-    <label for="name">Search</label>
-    <input value="<%= searchOptions.name %>" type="search" name="name" placeholder="Search for an author">
-    <button type="submit">Search</button>
+<form class="author-form" action="/authors" method="GET">
+        <input value="<%= searchOptions.name %>" type="search" name="name" placeholder="Search for an author">
+        <button class="btn btn-primary" type="submit">Search</button>
 </form>
 <br>
 <% authors.map(author => {%>
-    <div>
+    <div class="author-container">
         <div><%= author.name %></div>
-        <div><%= author.dob %></div>
-        <div><%= author.nationality %></div>
-        <a href="/authors/<%= author._id%>">View</a>
-        <a href="/authors/<%= author._id %>/edit">Edit</a>
-        <!--include form btn-->
-        <%- include('../partials/deleteForm', {url: '/authors/' + author._id}) %>
+        <div class="author-btn">
+            <a href="/authors/<%= author._id%>" class="btn btn-primary">View</a>
+            <a href="/authors/<%= author._id %>/edit" class="btn btn-primary">Edit</a>
+            <!--include form btn-->
+            <%- include('../partials/deleteForm', {url: '/authors/' + author._id}) %>
+        </div>
     </div>
 <% })%>

@@ -1,44 +1,50 @@
-<div>
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title" value="<%= book.title %>" placeholder="Book title">
-</div>
+<fieldset class="form-controller">
+    <div class="input-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="<%= book.title %>" placeholder="Book title">
+    </div>
+    
+    <div class="input-group">
+        <label for="genre">Genre</label>
+        <input type="text" name="genre" placeholder="Book genre" value="<%= book.genre %>">
+    </div>
+    
+    <div class="input-group">
+        <label for="author">Author</label>
+        <select name="author">
+            <% authors.map(author => { %>
+            <% if(author.id === book.author) {%>
+                <option selected label="<%= author.name %>" value="<%= author.id%>">
+            <% } else { %> 
+                <option label="<%= author.name%>" value="<%= author.id%>">
+            <% } %>
+          <% }) %>
+        </select>
+    </div>
+</fieldset>
 
-<div>
-    <label for="genre">Genre</label>
-    <input type="text" name="genre" placeholder="book genre" value="<%= book.genre %>">
-</div>
+<fieldset class="form-controller__date">
+    <div class="input-group">
+        <label>Publish Date</label>
+        <input type="date" name="publishDate" 
+                value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %>">
+    </div>
+    
+    <div class="input-group">
+        <label for="pageCount">Page Count</label>
+        <input type="number" name="pageCount" id="pageCount" min="1" value="<%= book.pageCount %>" placeholder="Add page number count">
+    </div>
+</fieldset>
 
-<div>
-    <label for="author">Author</label>
-    <select name="author">
-        <% authors.map(author => { %>
-        <% if(author.id === book.author) {%>
-            <option selected label="<%= author.name %>" value="<%= author.id%>">
-        <% } else { %> 
-            <option label="<%= author.name%>" value="<%= author.id%>">
-        <% } %>
-      <% }) %>
-    </select>
-</div>
-
-<div>
-    <label>Publish Date</label>
-    <input type="date" name="publishDate" 
-            value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %>">
-</div>
-
-<div>
-    <label for="pageCount">Page Count</label>
-    <input type="number" name="pageCount" id="pageCount" min="1" value="<%= book.pageCount %>">
-</div>
-
-<div>
-    <label for="cover">Cover</label>
-    <input type="file" name="cover" id="cover" class="filepond">
-</div>
-
-<div>
-    <label for="description">Description</label>
-    <textarea name="description" id="description"><%= book.description %></textarea>
-</div>
+<fieldset class="form-controller__cover">
+    <div class="input-group">
+        <label for="cover">Cover</label>
+        <input type="file" name="cover" id="cover" class="filepond filepond--item">
+    </div>
+    
+    <div class="input-group">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" placeholder="Add description"><%= book.description %></textarea>
+    </div>
+</fieldset>
 

@@ -1,28 +1,40 @@
-<h2>
+<h2 class="page-header show-book__header">
     <%= book.title %>
 </h2>
-<small><%= book.genre %></small>
-<img src="<%= book.coverImagePath %>" alt="<%= book.title %>">
-<div>
-    <div>
-        <h3>Author</h3>
-        <p><%= book.author.name %></p>
+<div class="show-book__container">
+    <div class="show-book__cover">
+        <img height="450px" width="400px" class="book__cover" src="<%= book.coverImagePath %>" alt="<%= book.title %>">
+        <div class="show-book__btns">
+            <a class="btn btn-primary" href="/books/<%= book._id %>/edit">Edit</a>
+            <!--Delete form-->
+            <%- include('../partials/deleteForm', {url: '/books/' + book._id}) %>
+        </div>
+        <div>
+            <a class="btn btn-primary" href="/authors/<%= book.author._id %>">View Author</a>
+        </div>
     </div>
-    <div>
-        <h3>Published</h3>
-        <p><%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %></p>
+    <div class="show-book__content">
+        <div class="show-book__info">
+            <h3>Genre</h3>
+            <small><%= book.genre %></small>
+        </div>
+        <div class="show-book__info">
+            <h3>Author</h3>
+            <p><%= book.author.name %></p>
+        </div>
+        <div class="show-book__info">
+            <h3>Published</h3>
+            <p><%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %></p>
+        </div>
+        <div class="show-book__info">
+            <h3>Pages</h3>
+            <p><%= book.pageCount %></p>
+        </div>
+        <div class="show-book__info">
+            <h3>Description</h3>
+            <p><%= book.description %></p>
+        </div>
     </div>
-    <div>
-        <h3>Pages</h3>
-        <p><%= book.pageCount %></p>
-    </div>
-    <div>
-        <h3>Description</h3>
-        <p><%= book.description %></p>
-    </div>
+
 </div>
 
-<a href="/books/<%= book._id %>/edit">Edit</a>
-<!--Delete form-->
-<%- include('../partials/deleteForm', {url: '/books/' + book._id}) %>
-<a href="/authors/<%= book.author._id %>">View Author</a>

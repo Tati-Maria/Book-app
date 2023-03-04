@@ -1,0 +1,153 @@
+fieldset.form-controller{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-controller input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    width: 100%;
+}
+
+.form-controller label, 
+.form-controller__date label{
+    font-weight: 300;
+}
+
+.form-controller select{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+}
+
+fieldset.form-controller__date{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.form-controller__date input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+}
+
+
+
+.form-controller__cover{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-controller__cover textarea{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    height: 400px;
+}
+
+.form-controller__cover .filepond--item{
+    width: calc(50% - 0.5em);
+}
+
+.show-book__header{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.show-book__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    place-items: center;
+    margin: 30px 0;
+}
+
+.show-book__cover{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.show-book__btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.show-book__content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.show-book__info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.show-book__info:last-of-type{
+    flex-direction: column;
+    gap: 20px;
+}
+
+.show-book__info p{
+    text-align: justify;
+}
+
+@media screen and (max-width: 768px){
+    .show-book__container{
+        grid-template-columns: 1fr;
+    }
+
+    .show-book__content p, 
+    .btn {
+        font-size: 16px;
+    }
+
+    .show-book__content h3{
+        font-size: 20px;
+    }
+
+    form{
+        font-size: 16px;
+    }
+
+
+    form label{
+        font-size: 18px;
+    }
+    
+    .form-controller{
+        align-items: flex-start;
+    }
+
+    .form-controller__date{
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    .form-controller__cover {
+        grid-template-columns: 1fr;
+    }
+
+    .form-controller__cover textarea{
+        height: 200px;
+    }
+}

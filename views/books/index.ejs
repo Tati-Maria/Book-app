@@ -1,29 +1,31 @@
-<h2>
+<h2 class="page-header">
     Search for a Book
 </h2>
-<form action="/books" method="GET">
-
-    <div>
+<form class="author-form" action="/books" method="GET" >
+    <div class="input-group">
         <label for="name">Title</label>
         <input value="<%= searchOptions.title %>" type="search" name="title" placeholder="Search for a book">
     </div>
-    <div>
-        <label>Published After</label>
-        <input value="<%= searchOptions.publishedAfter %>" type="date" name="publishedAfter">
-    </div>
-    <div>
-        <label>Published Before</label>
-        <input value="<%= searchOptions.publishedBefore %>" type="date" name="publishedBefore">
-    </div>
-    <button type="submit">Search</button>
+    <fieldset class="form-controller__date">
+        <div class="input-group">
+            <label>Published After</label>
+            <input value="<%= searchOptions.publishedAfter %>" type="date" name="publishedAfter">
+        </div>
+        <div class="input-group">
+            <label>Published Before</label>
+            <input value="<%= searchOptions.publishedBefore %>" type="date" name="publishedBefore">
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Search</button>
 </form>
 <br>
-<div>
+<div class="books">
     <% books.map(book => { %>
-        <div>
+        <div class="book-card">
             <a href="/books/<%= book._id %>">
-                <img height="150" width="100" src="<%= book.coverImagePath %>" alt="book cover">
+                <img height="350" width="300" src="<%= book.coverImagePath %>" alt="book cover">
             </a>
+            <h2><%= book.title %></h2>
         </div>
     <%}) %>
 </div>

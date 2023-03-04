@@ -1,12 +1,13 @@
-<h2>
+<h2 class="page-header">
     Recently Added Books
 </h2>
-<div>
+<div class="books">
     <% books.map(book => { %>
-        <div>
+        <div class="book-card">
             <a href="/books/<%= book._id %>">
-                <img height="150" width="100" src="<%= book.coverImagePath %>" alt="book cover">
+                <img height="350px" width="300px" src="<%= book.coverImagePath %>" alt="book cover">
             </a>
+            <h2><%= book.title %></h2>
         </div>
     <%}) %>
 </div>

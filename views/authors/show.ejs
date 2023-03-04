@@ -1,21 +1,28 @@
-<h2><%= author.name %></h2>
-<div>
-    <small>Born in <%= author.dob %></small>
-    <small>Nationality <%= author.nationality %></small>
+<h2 class="page-header"><%= author.name %></h2>
+<div class="author-header">
+    <small>Born in: <span><%= author.dob %></span></small>
+    <small>Nationality: <span><%= author.nationality %></span></small>
 </div>
-<a href="/authors/<%= author._id %>/edit">Edit</a>
-<!--include form btn-->
-<%- include('../partials/deleteForm', {url: '/authors/' + author._id}) %>
+<div class="author-btn">
+    <a class="btn btn-primary" href="/authors/<%= author._id %>/edit">Edit</a>
+    <!--include form btn-->
+    <%- include('../partials/deleteForm', {url: '/authors/' + author._id}) %>
+</div>
 <% if(booksByAuthor.length > 0) {%>
-    <h3>Books by Author</h3>
-    <ul>
+    <div class="books-byAuthor">
+        <h3 class="author-book">Books by this author</h3>
+    <ul class="books">
         <% booksByAuthor.map(book => {%>
-            <li>
-                <a href="/books/<%= book._id %>">
+            <li class="book-card">
+                <a  href="/books/<%= book._id %>">
                     <img src="<%= book.coverImagePath %>" alt="<%= book.title %>">
                 </a>
                 <h2><%= book.title %></h2>
             </li>
+    </div>
         <% })%>
     </ul>
+<% }  %> 
+<% if(booksByAuthor.length === 0) {%>
+    <h3 class="author-book">No books by this author</h3>
 <% } %>

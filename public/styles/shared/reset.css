@@ -1,0 +1,66 @@
+*, 
+*::before, 
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--secondary-color);
+    color: var(--text-color);
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4{
+    color: var(--primary-color);
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+ul li{
+    list-style: none;
+}
+
+p{
+    font-weight: 300;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+fieldset{
+    border: none;
+}
+
+main{
+    min-height: calc(100vh - 10rem);
+}

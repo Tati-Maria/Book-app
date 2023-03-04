@@ -13,15 +13,16 @@
     <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
     <script defer src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
     <script defer src="/javascripts/fileUpload.js"></script>
+    <link rel="stylesheet" href="/styles/main.css">
     <title>MyLibrary</title>
 </head>
-<body>
-    Before
-    <br>
+<body class="container">
     <%- include('../partials/header') %> <!-- This is the line that includes the header -->
-    <%- include('../partials/errorMessage') %> <!-- This is the line that includes the error message (if there is one') -->
-    <%- body %>
-    <br>
-    After
+    <main class="inner-container">
+        <%- include('../partials/errorMessage') %> <!-- This is the line that includes the error message (if there is one') -->
+        <%- body %>
+        <br>
+    </main>
+    <%- include('../partials/footer') %> <!-- This is the line that includes the footer -->
 </body>
 </html>
